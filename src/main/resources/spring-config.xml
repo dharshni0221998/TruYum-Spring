@@ -112,17 +112,18 @@
 			</list>
 		</constructor-arg>
 	</bean>
-	<bean id="menuDao"
+<!-- 	<bean id="menuDao"
 		class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
 		<property name="menuItemList" ref="menuItems" />
-	</bean>
-	<bean id="cartDao"
+	</bean> -->
+	<!--  <bean id="cartDao"
 		class="com.cognizant.truyum.dao.CartDaoCollectionImpl">
 		<property name="userCarts">
 			<map>
 			</map>
 		</property>
-	</bean>
+	</bean> -->
+	<bean id="hashMap" class="java.util.HashMap"/>
 
 
 

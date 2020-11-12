@@ -43,13 +43,7 @@ public class App {
 		System.out.println(service.getMenuItem(1));
 
 		CartService cService = (CartService) ctx.getBean("cartService");
-		try {
-
-			System.out.println(cService.getAllCartItems(10));
-		} catch (CartEmptyException e1) {
-			// TODO Auto-generated catch block
-
-		}
+		
 		cService.addCartItem(100, 1);
 		cService.addCartItem(100, 2);
 		cService.addCartItem(101, 2);

@@ -21,7 +21,6 @@ import com.cognizant.truyum.model.MenuItem;
 public class CartService {
 
 	@Autowired
-	@Qualifier("cartDao")
 	/**
 	 * object of cartdao collection implementation
 	 */

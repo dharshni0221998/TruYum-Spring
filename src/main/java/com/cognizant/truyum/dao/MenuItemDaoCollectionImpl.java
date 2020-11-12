@@ -5,6 +5,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.stereotype.Component;
+
 import com.cognizant.truyum.model.MenuItem;
 
 /**
@@ -12,11 +16,13 @@ import com.cognizant.truyum.model.MenuItem;
  * @author 877962
  *
  */
+@Component
+@ImportResource("classpath:spring-config.xml")
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
-
 	/**
 	 * List of Menu Item
 	 */
+	@Autowired
 	private List<MenuItem> menuItemList;
 
 	/**

@@ -5,11 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 //import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 //import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;
 
 import com.cognizant.truyum.model.Cart;
 import com.cognizant.truyum.model.MenuItem;
@@ -18,10 +20,12 @@ import com.cognizant.truyum.model.MenuItem;
  * @author 877962
  *
  */
+@Component
 public class CartDaoCollectionImpl implements CartDao {
     /**
      * Maintains all users cart details
      */
+	@Autowired
 	private HashMap<Long, Cart> userCarts;
 
 	public HashMap<Long, Cart> getUserCarts() {
@@ -40,8 +44,7 @@ public class CartDaoCollectionImpl implements CartDao {
     * Add cart Item
     */
 	public void addCartItem(long userId, long menuItemId) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
-		MenuItemDao menuItemDao = (MenuItemDao) ctx.getBean("menuDao");
+		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 		MenuItem menuItem = menuItemDao.getMenuItem(menuItemId);
 		boolean set = false;
 		if (!userCarts.isEmpty()) {
