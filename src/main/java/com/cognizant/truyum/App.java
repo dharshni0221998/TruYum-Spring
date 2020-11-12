@@ -19,23 +19,31 @@ public class App {
 		MenuItemService service = (MenuItemService) ctx.getBean("menuItemService");
 		System.out.println("====Admin Menu Item List====");
 		List<MenuItem> menuItemListAdmin = service.getMenuItemListAdmin();
-		for(MenuItem item:menuItemListAdmin) {
+		for (MenuItem item : menuItemListAdmin) {
 			System.out.println(item);
 		}
 		System.out.println("====Customer Menu Item List====");
 		List<MenuItem> menuItemListCustomer = service.getMenuItemListCustomer();
-		for(MenuItem item:menuItemListCustomer) {
+		for (MenuItem item : menuItemListCustomer) {
 			System.out.println(item);
 		}
-        
+
 		System.out.println("===Get Menu Item===");
 		System.out.println(service.getMenuItem(2));
 		System.out.println("===Modify Menu Item===");
-		service.editMenuItem(new MenuItem(1,"Sandwich",100.00f,true,DateUtil.convertToDate("15/03/2017"),"Main Course",true));
+		service.editMenuItem(
+				new MenuItem(1, "Sandwich", 100.00f, true, DateUtil.convertToDate("15/03/2017"), "Main Course", true));
 		System.out.println("===Get Menu Item===");
 		System.out.println(service.getMenuItem(1));
-		
-		CartService cService  = (CartService) ctx.getBean("cartService");
+
+		CartService cService = (CartService) ctx.getBean("cartService");
+		try {
+
+			System.out.println(cService.getAllCartItems(10));
+		} catch (CartEmptyException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		cService.addCartItem(100, 1);
 		cService.addCartItem(100, 2);
 		cService.addCartItem(101, 2);
@@ -43,7 +51,7 @@ public class App {
 		try {
 			List<MenuItem> cartList = cService.getAllCartItems(100);
 			System.out.println("Items in Cart");
-			for(MenuItem item:cartList) {
+			for (MenuItem item : cartList) {
 				System.out.println(item);
 			}
 		} catch (CartEmptyException e) {
@@ -55,7 +63,7 @@ public class App {
 		try {
 			List<MenuItem> cartList = cService.getAllCartItems(100);
 			System.out.println("Items in Cart");
-			for(MenuItem item:cartList) {
+			for (MenuItem item : cartList) {
 				System.out.println(item);
 			}
 		} catch (CartEmptyException e) {

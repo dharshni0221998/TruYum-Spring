@@ -1,17 +1,16 @@
 package com.cognizant.truyum.dao;
 
 import java.util.Date;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 import com.cognizant.truyum.model.MenuItem;
 
-public class MenuItemDaoCollectionImpl implements MenuItemDao{
-	private  List<MenuItem> menuItemList;
-	
-	
-	
+public class MenuItemDaoCollectionImpl implements MenuItemDao {
+
+	private List<MenuItem> menuItemList;
+
 	public MenuItemDaoCollectionImpl() {
 		super();
 	}
@@ -24,22 +23,23 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao{
 		this.menuItemList = menuItemList;
 	}
 
-	public List<MenuItem> getMenuItemListAdmin(){
+	public List<MenuItem> getMenuItemListAdmin() {
 		return menuItemList;
-		
+
 	}
-	
-	public List<MenuItem> getMenuItemListCustomer(){
-		
-		   return menuItemList.stream().filter(e->(e.getDateOfLaunch().before(new Date())||e.getDateOfLaunch().compareTo(new Date())==0)&&(e.isActive())
-		).collect(Collectors.toList());
-		
-		
-		
+
+	public List<MenuItem> getMenuItemListCustomer() {
+
+		return menuItemList.stream()
+				.filter(e -> (e.getDateOfLaunch().before(new Date()) || e.getDateOfLaunch().compareTo(new Date()) == 0)
+						&& (e.isActive()))
+				.collect(Collectors.toList());
+
 	}
-	public void modifyMenuItem(MenuItem menuItem){
-		for(MenuItem e: menuItemList){
-			if(e.equals(menuItem)){
+
+	public void modifyMenuItem(MenuItem menuItem) {
+		for (MenuItem e : menuItemList) {
+			if (e.equals(menuItem)) {
 				e.setActive(menuItem.isActive());
 				e.setCategory(menuItem.getCategory());
 				e.setDateOfLaunch(menuItem.getDateOfLaunch());
@@ -49,16 +49,17 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao{
 				e.setPrice(menuItem.getPrice());
 			}
 		}
-		
+
 	}
-	public MenuItem getMenuItem(long menuItemId){
-		for(MenuItem e:menuItemList){
-			if(e.getId()==menuItemId){
+
+	public MenuItem getMenuItem(long menuItemId) {
+		for (MenuItem e : menuItemList) {
+			if (e.getId() == menuItemId) {
 				return e;
 			}
 		}
 		return null;
-		
+
 	}
 
 }

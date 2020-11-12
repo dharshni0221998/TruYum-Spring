@@ -114,7 +114,8 @@
 	<bean id="menuDao" class = "com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
 	<property name="menuItemList" ref="menuItems"/>
 	</bean>
-	<bean id="cartDao" class = "com.cognizant.truyum.dao.CartDaoCollectionImpl">
+	<bean id="cartDao"
+	class="com.cognizant.truyum.dao.CartDaoCollectionImpl">
 	 <property name="userCarts">
 	  <map>
 	  </map>

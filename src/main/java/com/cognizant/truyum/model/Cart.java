@@ -1,37 +1,44 @@
 package com.cognizant.truyum.model;
+
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-@Component("cart")
+
 public class Cart {
 	private List<MenuItem> menuItemList;
 	private double total;
-	
+
 	public Cart() {
 		super();
 	}
+
 	public List<MenuItem> getMenuItemList() {
 		return menuItemList;
 	}
+
 	public void setMenuItemList(List<MenuItem> menuItemList) {
 		this.menuItemList = menuItemList;
 	}
+
 	public double getTotal() {
 		return total;
 	}
+
 	public void setTotal(double total) {
 		this.total = total;
 	}
+
 	public Cart(List<MenuItem> menuItemList, double total) {
 		super();
 		this.menuItemList = menuItemList;
 		this.total = total;
 	}
+
 	@Override
 	public String toString() {
 		return "Cart [menuItemList=" + menuItemList + ", total=" + total + "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -39,6 +46,7 @@ public class Cart {
 		result = prime * result + ((menuItemList == null) ? 0 : menuItemList.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -55,7 +63,5 @@ public class Cart {
 			return false;
 		return true;
 	}
-	
-	
 
 }
