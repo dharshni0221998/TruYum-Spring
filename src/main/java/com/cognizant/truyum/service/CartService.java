@@ -13,10 +13,18 @@ import com.cognizant.truyum.model.MenuItem;
 
 @Service("cartService")
 @ImportResource("classpath:spring-config.xml")
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class CartService {
 
 	@Autowired
 	@Qualifier("cartDao")
+	/**
+	 * object of cartdao collection implementation
+	 */
 	private CartDao cartDao;
 
 	public CartDao getCartDao() {
@@ -27,6 +35,12 @@ public class CartService {
 		this.cartDao = cartDao;
 	}
 
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws CartEmptyException
+	 */
 	public List<MenuItem> getAllCartItems(long userId) throws CartEmptyException {
 		return cartDao.getAllCartItems(userId);
 

@@ -19,8 +19,9 @@
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
-	<context:component-scan base-package="com.cognizant.*"/>
-	<context:annotation-config/>
+	<context:component-scan
+		base-package="com.cognizant.*" />
+	<context:annotation-config />
 	<bean id="sdf" class="java.text.SimpleDateFormat">
 		<constructor-arg value="dd/MM/yyyy" />
 	</bean>
@@ -111,15 +112,16 @@
 			</list>
 		</constructor-arg>
 	</bean>
-	<bean id="menuDao" class = "com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
-	<property name="menuItemList" ref="menuItems"/>
+	<bean id="menuDao"
+		class="com.cognizant.truyum.dao.MenuItemDaoCollectionImpl">
+		<property name="menuItemList" ref="menuItems" />
 	</bean>
 	<bean id="cartDao"
-	class="com.cognizant.truyum.dao.CartDaoCollectionImpl">
-	 <property name="userCarts">
-	  <map>
-	  </map>
-	 </property>
+		class="com.cognizant.truyum.dao.CartDaoCollectionImpl">
+		<property name="userCarts">
+			<map>
+			</map>
+		</property>
 	</bean>
 
 

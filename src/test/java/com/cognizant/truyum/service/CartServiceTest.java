@@ -12,8 +12,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.cognizant.truyum.dao.CartEmptyException;
 import com.cognizant.truyum.model.MenuItem;
 
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class CartServiceTest {
 
+	/**
+	 * Cart Service object
+	 */
 	private CartService cartService;
 
 	@Before
@@ -25,6 +33,10 @@ public class CartServiceTest {
 	}
 
 	@Test(expected = CartEmptyException.class)
+	/**
+	 * 
+	 * @throws CartEmptyException
+	 */
 	public void testGetAllCartItemsThrowsException() throws CartEmptyException {
 		cartService.addCartItem(102, 1);
 		cartService.removeCartItem(102, 1);
@@ -32,31 +44,40 @@ public class CartServiceTest {
 	}
 
 	@Test
+	/**
+	 * Add item into cart
+	 */
 	public void testAddCartItem() {
-		 cartService.addCartItem(102, 2);
-		 try {
-			List<MenuItem> cartItem = cartService.getAllCartItems(102).stream().filter(e->e.getId()==2).collect(Collectors.toList());
-		    assertFalse(cartItem.isEmpty());   
+		cartService.addCartItem(102, 2);
+		try {
+			List<MenuItem> cartItem = cartService.getAllCartItems(102).stream().filter(e -> e.getId() == 2)
+					.collect(Collectors.toList());
+			assertFalse(cartItem.isEmpty());
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 
 	}
+
 	@Test
+	/**
+	 * Remove item from cart
+	 */
 	public void testRemoveCartItem() {
 		cartService.addCartItem(102, 1);
 		cartService.addCartItem(102, 2);
 		cartService.removeCartItem(102, 1);
 		List<MenuItem> cartItem;
 		try {
-			cartItem = cartService.getAllCartItems(102).stream().filter(e->e.getId()==1).collect(Collectors.toList());
-			assertTrue(cartItem.isEmpty()); 
+			cartItem = cartService.getAllCartItems(102).stream().filter(e -> e.getId() == 1)
+					.collect(Collectors.toList());
+			assertTrue(cartItem.isEmpty());
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
-	     
+
 	}
 
 }

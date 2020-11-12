@@ -11,10 +11,16 @@ import com.cognizant.truyum.service.CartService;
 import com.cognizant.truyum.service.MenuItemService;
 import com.cognizant.truyum.util.DateUtil;
 
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class App {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("resource")
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
 		MenuItemService service = (MenuItemService) ctx.getBean("menuItemService");
 		System.out.println("====Admin Menu Item List====");
@@ -42,7 +48,7 @@ public class App {
 			System.out.println(cService.getAllCartItems(10));
 		} catch (CartEmptyException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+
 		}
 		cService.addCartItem(100, 1);
 		cService.addCartItem(100, 2);
@@ -56,7 +62,7 @@ public class App {
 			}
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 		cService.removeCartItem(100, 2);
 		System.out.println("===Item Removed===");
@@ -68,7 +74,7 @@ public class App {
 			}
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+
 		}
 	}
 

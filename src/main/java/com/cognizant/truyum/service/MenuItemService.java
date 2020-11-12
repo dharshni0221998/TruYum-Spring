@@ -10,9 +10,17 @@ import com.cognizant.truyum.dao.MenuItemDao;
 import com.cognizant.truyum.model.MenuItem;
 
 @Service("menuItemService")
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class MenuItemService {
 
 	@Autowired
+	/**
+	 * MenuItemDaoCollectionImpl object will be injected
+	 */
 	private MenuItemDao menuItemDao;
 
 	public MenuItemDao getMenuItemDao() {
@@ -23,22 +31,39 @@ public class MenuItemService {
 		this.menuItemDao = menuItemDao;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<MenuItem> getMenuItemListAdmin() {
 
 		return menuItemDao.getMenuItemListAdmin();
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<MenuItem> getMenuItemListCustomer() {
 		return menuItemDao.getMenuItemListCustomer();
 
 	}
 
+	/**
+	 * 
+	 * @param menuItemId
+	 * @return
+	 */
 	public MenuItem getMenuItem(long menuItemId) {
 		return menuItemDao.getMenuItem(menuItemId);
 
 	}
 
+	/**
+	 * 
+	 * @param menuItem
+	 */
 	public void editMenuItem(MenuItem menuItem) {
 
 		menuItemDao.modifyMenuItem(menuItem);

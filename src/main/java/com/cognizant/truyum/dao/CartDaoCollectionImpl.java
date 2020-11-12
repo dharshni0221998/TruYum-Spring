@@ -5,17 +5,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ImportResource;
+//import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
 import com.cognizant.truyum.model.Cart;
 import com.cognizant.truyum.model.MenuItem;
-
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class CartDaoCollectionImpl implements CartDao {
-
+    /**
+     * Maintains all users cart details
+     */
 	private HashMap<Long, Cart> userCarts;
 
 	public HashMap<Long, Cart> getUserCarts() {
@@ -30,7 +36,9 @@ public class CartDaoCollectionImpl implements CartDao {
 		super();
 
 	}
-
+   /**
+    * Add cart Item
+    */
 	public void addCartItem(long userId, long menuItemId) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
 		MenuItemDao menuItemDao = (MenuItemDao) ctx.getBean("menuDao");
@@ -55,7 +63,9 @@ public class CartDaoCollectionImpl implements CartDao {
 		}
 
 	}
-
+   /**
+    * List all cart item
+    */
 	public List<MenuItem> getAllCartItems(long userId) throws CartEmptyException {
 		List<MenuItem> menuListItem = new ArrayList<MenuItem>();
 		for (Entry<Long, Cart> e : userCarts.entrySet()) {
@@ -77,7 +87,10 @@ public class CartDaoCollectionImpl implements CartDao {
 		return null;
 
 	}
-
+    
+	/**
+	 * Remove a cart item
+	 */
 	public void removeCartItem(long userId, long menuItemId) {
 
 		List<MenuItem> menuListItem = new ArrayList<MenuItem>();

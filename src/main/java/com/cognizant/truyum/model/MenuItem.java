@@ -2,15 +2,51 @@ package com.cognizant.truyum.model;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class MenuItem {
+	/**
+	 * menu Item Id : Unique value
+	 */
 	private long id;
+	/**
+	 * Item name
+	 */
 	private String name;
+	/**
+	 * price of item
+	 */
 	private float price;
+	/**
+	 * Menu Item available or not
+	 */
 	private boolean active;
+	/**
+	 * Launch date
+	 */
 	private Date dateOfLaunch;
+	/**
+	 * category
+	 */
 	private String category;
+	/**
+	 * Free Delivery
+	 */
 	private boolean freeDelivery;
 
+	/**
+	 * 
+	 * @param id
+	 * @param name
+	 * @param price
+	 * @param active
+	 * @param dateOfLaunch
+	 * @param category
+	 * @param freeDelivery
+	 */
 	public MenuItem(long id, String name, float price, boolean active, Date dateOfLaunch, String category,
 			boolean freeDelivery) {
 		super();
@@ -23,6 +59,9 @@ public class MenuItem {
 		this.freeDelivery = freeDelivery;
 	}
 
+	/**
+	 * Default constructor
+	 */
 	public MenuItem() {
 		// TODO Auto-generated constructor stub
 	}

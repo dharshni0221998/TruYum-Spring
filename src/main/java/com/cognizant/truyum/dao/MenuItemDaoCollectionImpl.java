@@ -7,10 +7,21 @@ import java.util.stream.Collectors;
 
 import com.cognizant.truyum.model.MenuItem;
 
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
+	/**
+	 * List of Menu Item
+	 */
 	private List<MenuItem> menuItemList;
 
+	/**
+	 * Default Constructor
+	 */
 	public MenuItemDaoCollectionImpl() {
 		super();
 	}
@@ -23,11 +34,17 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		this.menuItemList = menuItemList;
 	}
 
+	/**
+	 * list the menu Iteam for admin
+	 */
 	public List<MenuItem> getMenuItemListAdmin() {
 		return menuItemList;
 
 	}
 
+	/**
+	 * list the menu Iteam for customer
+	 */
 	public List<MenuItem> getMenuItemListCustomer() {
 
 		return menuItemList.stream()
@@ -37,6 +54,9 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	}
 
+	/**
+	 * Modify the menuItem
+	 */
 	public void modifyMenuItem(MenuItem menuItem) {
 		for (MenuItem e : menuItemList) {
 			if (e.equals(menuItem)) {
@@ -52,6 +72,9 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 
 	}
 
+	/**
+	 * get menuItem corresponding to menuItem Id
+	 */
 	public MenuItem getMenuItem(long menuItemId) {
 		for (MenuItem e : menuItemList) {
 			if (e.getId() == menuItemId) {

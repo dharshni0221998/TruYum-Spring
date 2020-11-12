@@ -3,15 +3,36 @@ package com.cognizant.truyum.dao;
 import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
-
+/**
+ * 
+ * @author 877962
+ *
+ */
 public interface MenuItemDao {
 
-	public List<MenuItem> getMenuItemListAdmin();
+	/**
+	 * 
+	 * @return menuList Item
+	 */
+	 List<MenuItem> getMenuItemListAdmin();
 
-	public List<MenuItem> getMenuItemListCustomer();
+	/**
+	 * 
+	 * @return menuList Item
+	 */
+	 List<MenuItem> getMenuItemListCustomer();
 
-	public void modifyMenuItem(MenuItem menuItem);
+	/**
+	 * 
+	 * @param menuItem
+	 */
+	 void modifyMenuItem(MenuItem menuItem);
 
-	public MenuItem getMenuItem(long menuItemId);
+	/**
+	 * 
+	 * @param menuItemId
+	 * @return menu Item
+	 */
+	 MenuItem getMenuItem(long menuItemId);
 
 }

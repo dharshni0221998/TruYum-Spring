@@ -2,12 +2,24 @@ package com.cognizant.truyum.model;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
+/**
+ * 
+ * @author 877962
+ *
+ */
 public class Cart {
+	/**
+	 * Menu Item List
+	 */
 	private List<MenuItem> menuItemList;
+	/**
+	 * Total Price of Items In cart
+	 */
 	private double total;
 
+	/**
+	 * Default Constructor
+	 */
 	public Cart() {
 		super();
 	}
@@ -49,18 +61,22 @@ public class Cart {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Cart other = (Cart) obj;
 		if (menuItemList == null) {
 			if (other.menuItemList != null)
 				return false;
-		} else if (!menuItemList.equals(other.menuItemList))
+		} else if (!menuItemList.equals(other.menuItemList)) {
 			return false;
+		}
 		return true;
 	}
 
