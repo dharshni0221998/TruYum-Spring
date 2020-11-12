@@ -32,6 +32,10 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		super();
 	}
 
+	public MenuItemDaoCollectionImpl(final List<MenuItem> menuItemList) {
+        super();
+        this.menuItemList = menuItemList;
+    }
 	public List<MenuItem> getMenuItemList() {
 		return menuItemList;
 	}

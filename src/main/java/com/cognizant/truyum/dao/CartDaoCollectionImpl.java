@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 //import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 //import org.springframework.stereotype.Component;
@@ -21,12 +23,16 @@ import com.cognizant.truyum.model.MenuItem;
  *
  */
 @Component
+@ImportResource("classpath:spring-config.xml")
 public class CartDaoCollectionImpl implements CartDao {
     /**
      * Maintains all users cart details
      */
 	@Autowired
+	@Qualifier("hashMap")
 	private HashMap<Long, Cart> userCarts;
+	@Autowired
+	private MenuItemDao menuItemDao;
 
 	public HashMap<Long, Cart> getUserCarts() {
 		return userCarts;
@@ -44,7 +50,6 @@ public class CartDaoCollectionImpl implements CartDao {
     * Add cart Item
     */
 	public void addCartItem(long userId, long menuItemId) {
-		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 		MenuItem menuItem = menuItemDao.getMenuItem(menuItemId);
 		boolean set = false;
 		if (!userCarts.isEmpty()) {
